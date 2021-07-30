@@ -25,6 +25,8 @@ defmodule KV do
 
     SimpleProcessCom.One.init()
 
+    SimpleProcessCom.Two.init()
+
     pid = self()
     { :ok, pid }
   end

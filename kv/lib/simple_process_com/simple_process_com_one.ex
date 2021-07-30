@@ -4,6 +4,7 @@ defmodule SimpleProcessCom.One do
     "Simple Process Com.One Module Init Function ..."
     |> IO.puts
 
+
     initialize_sample_scenario_one()
   end
 
