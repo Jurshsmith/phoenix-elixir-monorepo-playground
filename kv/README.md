@@ -38,3 +38,9 @@ interact with Key Value Store with
 ```
   KeyValue.Server.start_link()
 ```
+
+map the process id to an atom so that every other service can interact with this process from anywhere using 
+
+```
+Process.register(pid, :process_alias)
+```
