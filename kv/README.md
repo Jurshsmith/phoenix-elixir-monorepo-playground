@@ -25,3 +25,16 @@ From project root :
 ```
   mix run
 ```
+
+or for some
+
+after cloning
+
+```
+  cd kv\lib\key_value_server
+```
+
+interact with Key Value Store with
+```
+  KeyValue.Server.start_link()
+```

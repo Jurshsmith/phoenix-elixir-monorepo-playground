@@ -17,18 +17,18 @@ defmodule KV do
   # Fun fact: mix.exs is a script file that can be run on your OS level programmatically ?
   # On execution of this function, mix wants to get a tuple of {:ok , PID } so return self() for this simple use case
 
-
-  def start _type, _args do
-
+  def start(_type, _args) do
     "Started KV..."
-    |> IO.puts
+    |> IO.puts()
 
     SimpleProcessCom.One.init()
 
     SimpleProcessCom.Two.init()
 
+    KeyValue.Server.start_link()
+
     pid = self()
-    { :ok, pid }
+    {:ok, pid}
   end
 
   def hello do
