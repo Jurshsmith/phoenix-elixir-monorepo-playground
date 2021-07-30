@@ -11,6 +11,9 @@ defmodule SimpleProcessCom.One do
     "Starting Scenario One ...."
     |> IO.puts
 
+    # this scenario sends a message to the process before the receive hook was called
+    # and this process (the parent) was still able to work with the previously sent messages
+    # meaning that provided that process was alive when the message was sent, the receive hook can be called anytime in the future and would still be able process each of those messages
     create_new_simple_process_that_tells_current_process_hello()
 
     start_listening_for_messages_and_react_accordingly()
