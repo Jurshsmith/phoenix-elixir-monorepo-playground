@@ -46,3 +46,11 @@ Process.register(pid, :process_alias)
 ```
 
 Only do this, if the process is a single instance (like each unique micro-service?)
+
+Use 
+
+```
+ :observer.start
+```
+
+from `iex` to view chart of supervisor tree among many other analytics
