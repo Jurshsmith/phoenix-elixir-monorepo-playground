@@ -2,6 +2,8 @@
 
 const { ApolloServer, gql } = require("apollo-server");
 
+//  menuItem (id: ID!): MenuItem , create a param for both queries and mutations
+
 const menuItems = [
   {
     id: 1,
@@ -30,14 +32,17 @@ const typeDefs = gql`
   }
 
   type Query {                 
-
     "Get menu Items"
-    menuItems: [MenuItem]      
+    menuItems: [MenuItem]    
+    menuItem (id: Int!): MenuItem
   }
 `
+
+
 const resolvers = {
   Query: {
-    menuItems: () => menuItems
+    menuItems: () => menuItems,
+    menuItem:(_, { id })=> menuItems.find(({ id: _id }) => _id === id)
   }
 }
 
