@@ -1,7 +1,8 @@
 defmodule KeyValueServer.WithAgent do
   # Agent is a way simpler abstraction in managing states between processes
-  #  set initial state when spawning new linked process with Agent.start_link api
-  #  get and set the state with the concept of a callback function
+  # It is built on top of GenServer
+  # set initial state when spawning new linked process with Agent.start_link api
+  # get and set the state with the concept of a callback function
   def start_link do
     Agent.start_link(fn -> %{} end)
   end
