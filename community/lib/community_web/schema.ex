@@ -5,7 +5,7 @@ defmodule CommunityWeb.Schema do
 
   object :link do
     field :id, non_null(:id)
-    filed :url, non_null(:string)
+    field :url, non_null(:string)
     field :description, non_null(:string)
   end
 
