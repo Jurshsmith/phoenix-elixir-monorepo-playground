@@ -12,7 +12,9 @@ defmodule CommunityWeb.Schema do
   query do
     # this is the query entry point to our app
     @desc "Get all links"
-    field :all_links, non_null(list_of(non_null(:link)))
+    field :all_links, non_null(list_of(non_null(:link))) do
+      resolve(&NewsResolver.all_links/3)
+    end
   end
 
 end
