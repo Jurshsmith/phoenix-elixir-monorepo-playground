@@ -1,0 +1,17 @@
+version: '3.7'
+
+volumes:
+    postgres:
+
+services:
+  postgres:
+    container_name: simple_postgres
+    image: "postgres:13"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+       - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+    restart: unless-stopped
