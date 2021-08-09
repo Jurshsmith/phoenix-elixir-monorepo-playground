@@ -13,3 +13,6 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+Run the app by doing:
+`iex -S mix phx.server`
+
