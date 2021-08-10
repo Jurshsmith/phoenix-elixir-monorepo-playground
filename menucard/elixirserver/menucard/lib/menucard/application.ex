@@ -8,7 +8,7 @@ defmodule Menucard.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      Menucard.Repo,
+      # Menucard.Repo,
       # Start the Telemetry supervisor
       MenucardWeb.Telemetry,
       # Start the PubSub system

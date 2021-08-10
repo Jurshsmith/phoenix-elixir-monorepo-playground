@@ -13,9 +13,10 @@ defmodule MenucardWeb.Router do
     plug :accepts, ["json"]
   end
 
+  forward "/graphiql", Absinthe.Plug.GraphiQL, schema: MenuCardWeb.Schema
+
   scope "/", MenucardWeb do
     pipe_through :browser
-
     get "/", PageController, :index
   end
 
