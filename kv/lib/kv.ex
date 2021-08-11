@@ -21,11 +21,15 @@ defmodule KV do
     "Started KV..."
     |> IO.puts()
 
-    SimpleProcessCom.One.init()
+    # SimpleProcessCom.One.init()
 
-    SimpleProcessCom.Two.init()
+    # SimpleProcessCom.Two.init()
 
-    KeyValue.Server.start_link()
+    # KeyValue.Server.start_link()
+
+    Redix.start_link("redis://localhost:6378", name: :event_bus)
+
+    GenServer.start_link(StackGenServer, [:hello]);
 
     pid = self()
     {:ok, pid}
