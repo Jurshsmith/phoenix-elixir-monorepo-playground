@@ -9,7 +9,10 @@ defmodule RedixStreamsServer do
     # Schedule a simple call to this process to trigger the handle_info concept
     task = Task.Supervisor.async_nolink(MyApp.TaskSupervisor, fn -> Redix.command!(:event_bus, ["XREAD", "COUNT", "1", "STREAMS", "mystream", 0]) end)
 
-    {:ok, %{ id: 0 }}
+
+    initial_state = Map.put(%{}, task.ref, 0)
+
+    {:ok, initial_state}
   end
 
   # def handle_info(:check_stream, state) do
@@ -42,9 +45,11 @@ defmodule RedixStreamsServer do
       last_id
       |> IO.inspect()
 
-      state = state |> Map.put(:id, last_id)
-
       task = Task.Supervisor.async_nolink(MyApp.TaskSupervisor, fn -> Redix.command!(:event_bus, ["XREAD", "COUNT", "1", "STREAMS", "mystream", last_id]) end)
+
+      state = Map.delete(state, ref)
+
+      state = state |> Map.put(task.ref, last_id)
     end
 
     {:noreply, state}
