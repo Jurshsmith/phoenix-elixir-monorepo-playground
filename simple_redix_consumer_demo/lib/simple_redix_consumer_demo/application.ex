@@ -10,7 +10,7 @@ defmodule SimpleRedixConsumerDemo.Application do
       # Start the Ecto repository
       # Start the Telemetry supervisor
       {Task.Supervisor, name: MyApp.TaskSupervisor},
-      {RedixStreamsServer, name: :simple_async_genserver},
+      {RedixStreamsServerTwo, name: :simple_async_genserver},
       SimpleRedixConsumerDemoWeb.Telemetry,
       # Start a worker by calling: SimpleRedixConsumerDemo.Worker.start_link(arg)
       # {SimpleRedixConsumerDemo.Worker, arg}
